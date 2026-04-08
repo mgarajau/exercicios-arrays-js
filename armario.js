@@ -1,8 +1,8 @@
 const armario = [
-    'camisa',
-    'calça',
-    'meias',
-    'cueca',
+    {gaveta1: 'camisa'},
+    {gaveta2: 'calça'},
+    {gaveta3: 'meias'},
+    {gaveta4: 'cueca'},
 ]
 
 //[inicio, meio, fim].pop() => [inicio,meio]
@@ -11,21 +11,31 @@ armario.pop();
 
 
 // [inicio, meio, fim].unshift(novoItem) => [novoItem, inicio, meio, fim]
-armario.unshift('jaqueta'); 
+armario.unshift({gaveta5: 'jaqueta'}); 
 
 
 // [inicio, meio ,fim].shift() => [meio, fim]
 //const itemRemovidoInicio = armario.shift(); 
 
 
-armario.push('sapatos');
-armario.push('meias');
+armario.push({gaveta6: 'sapatos'});
+armario.push({gaveta7: 'meias'});
 
-const novoArmario = armario.map((itemArmario) => ({
-    name: itemArmario,
-    isDurty : itemArmario === 'meias',
-}))
- 
+const novoArmario = armario.map((itemArmario) => {
+  const valor = Object.values(itemArmario)[0];
 
+  return {
+    name: valor,
+    isDurty: valor === 'meias',
+  };
+});
 
-console.log(novoArmario);
+// [itemArmario, isDurty] => {name: itemArmario, isDurty: true/false}
+const armarioFiltrado = novoArmario.filter((itemArmario) => itemArmario.isDurty)
+
+const descricaoTodosItens = novoArmario.reduce((prev, next) => {
+    if(!prev.length) return next.name
+    return ` ${prev}, ${next.name}`;
+}, '')
+
+console.log(descricaoTodosItens);
