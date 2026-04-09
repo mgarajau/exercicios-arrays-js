@@ -11,7 +11,7 @@ armario.pop();
 
 
 // [inicio, meio, fim].unshift(novoItem) => [novoItem, inicio, meio, fim]
-armario.unshift({gaveta5: 'jaqueta'}); 
+armario.unshift(); 
 
 
 // [inicio, meio ,fim].shift() => [meio, fim]
@@ -38,4 +38,9 @@ const descricaoTodosItens = novoArmario.reduce((prev, next) => {
     return ` ${prev}, ${next.name}`;
 }, '')
 
-console.log(descricaoTodosItens);
+const armarioEtiquetado = armario.map((item, position) => {
+    return ({...item, color: position === 2 ? 'vermelho' : 'azul'})
+})
+
+
+console.log(armarioEtiquetado.find((item) => item.color === 'azul'));
