@@ -3,7 +3,8 @@ const armario = [
     {gaveta2: 'calça'},
     {gaveta3: 'meias'},
     {gaveta4: 'cueca'},
-]
+];
+
 
 //[inicio, meio, fim].pop() => [inicio,meio]
 const itemFinalRemovido = armario.pop(); 
@@ -21,26 +22,18 @@ armario.unshift();
 armario.push({gaveta6: 'sapatos'});
 armario.push({gaveta7: 'meias'});
 
-const novoArmario = armario.map((itemArmario) => {
-  const valor = Object.values(itemArmario)[0];
-
-  return {
-    name: valor,
-    isDurty: valor === 'meias',
-  };
-});
 
 // [itemArmario, isDurty] => {name: itemArmario, isDurty: true/false}
-const armarioFiltrado = novoArmario.filter((itemArmario) => itemArmario.isDurty)
+const armarioFiltrado = armario.filter((itemArmario) => itemArmario.isDurty)
 
-const descricaoTodosItens = novoArmario.reduce((prev, next) => {
-    if(!prev.length) return next.name
-    return ` ${prev}, ${next.name}`;
-}, '')
+//reduce => [itemArmario, itemArmario2, itemArmario3] => {gaveta1: itemArmario, gaveta2: itemArmario2, gaveta3: itemArmario3}
+const armarioobj = armario.reduce((acc, itemArmario) => {
+    return {...acc, ...itemArmario}
+}, {})
 
 const armarioEtiquetado = armario.map((item, position) => {
     return ({...item, color: position === 2 ? 'vermelho' : 'azul'})
 })
 
 
-console.log(armarioEtiquetado.find((item) => item.color === 'azul'));
+console.log(armarioobj);
