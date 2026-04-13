@@ -1,10 +1,11 @@
+//Adicionar item no início//
 const frutas = ['banana', 'maçã']
 
 frutas.unshift('laranja')
 
 console.log(frutas)
 
-//-----------------//
+//Remover último item//
 
 const numeros = [1, 2, 3, 4, 5]
 
@@ -12,7 +13,7 @@ numeros.pop()
 
 console.log(numeros)
 
-//-----------------//
+//Dobrar números//
 
 const nums = [1, 2, 3, 4]
 
@@ -20,7 +21,7 @@ const dobrados = nums.map((num) => num * 2);
 
 console.log(dobrados)
 
-//-----------------//
+//Filtrar maiores que 10//
 
 const valores = [5, 12, 8, 20]
 
@@ -28,7 +29,7 @@ const filtrados = valores.filter((valor) => valor > 10);
 
 console.log(filtrados)
 
-//-----------------//
+//Verificar se existe número maior que 10//
 
 const lista = [10, 20, 30]
 
@@ -36,7 +37,7 @@ const temNumeroMaiorQue10 = lista.some((num) => num > 10);
 
 console.log(temNumeroMaiorQue10)
 
-//-----------------//
+//Somar todos os números//
 
 const numeros2 = [10, 20, 30]
 
@@ -44,7 +45,7 @@ const soma = numeros2.reduce((acumulador, num) => acumulador + num, 0);
 
 console.log(soma)
 
-//-----------------//
+//Extrair nomes//
 
 const pessoas = [
     { nome: 'Alice', idade: 17 },
@@ -56,13 +57,13 @@ const nomes = pessoas.map((pessoa) => pessoa.nome);
 
 console.log(nomes)
 
-//-----------------//
+//Filtrar maiores de idade//
 
 const maiorDeIdade = pessoas.filter((pessoa) => pessoa.idade >= 18 );
 
 console.log(maiorDeIdade)
 
-//-----------------//
+//Verificar se TODOS são maiores de 18//
 
 const todosSaoMaioresDeIdade = pessoas.every((pessoa) => pessoa.idade >= 18);
 
